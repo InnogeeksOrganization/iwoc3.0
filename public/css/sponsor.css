@@ -102,10 +102,10 @@
     transition: all .5s ease;
   }
   .ag-courses_item:nth-child(1) .ag-courses-item_bg {
-    background-color: #8345e6;
+    background-color: #433260;
   }
   .ag-courses_item:nth-child(2) .ag-courses-item_bg {
-    background-color: #3770FF;
+    background-color: #384e86;
   }
   .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
     background-color: #952aff;
