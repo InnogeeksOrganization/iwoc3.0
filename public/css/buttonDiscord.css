@@ -1,264 +1,234 @@
-.twobuttons,
-.sponsors {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    --fs-size: 1.5em;
-    --border-right: 4px;
-}
-
-.guidebutton {
-    display: none;
-}
-.bookmarkBtn {
-    width: 200px;
-    height: 80px;
-    border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.349);
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition-duration: .3s;
-    overflow: hidden;
-  }
-  
-  .IconContainer {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(to top, #889ee7,rgb(70, 73, 255));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    z-index: 2;
-    transition-duration: .3s;
-  }
-  
-  .icon-btn {
-    border-radius: 1px;
-  }
-  
-  .text-btn {
-    height: 100%;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    z-index: 1;
-    transition-duration: .3s;
-    font-size: 1.04em;
-    margin-top: 1rem;
-  }
-  
-  .bookmarkBtn:hover .IconContainer {
-    width: 170px;
-    border-radius: 40px;
-    transition-duration: .3s;
-  }
-  
-  .bookmarkBtn:hover .text-btn {
-    transform: translate(10px);
-    width: 0;
-    font-size: 0;
-    transition-duration: .3s;
-  }
-  
-  .bookmarkBtn:active {
-    transform: scale(0.95);
-    transition-duration: .3s;
-  }
- 
-  
-
-@media only screen and (max-width:699.9px) {
-    .discord-btn-1{
-      scale:0;
-      display: none;
-    }
-    .bookmarkBtn:nth-child(2){
-        scale: 0.8;
-
-    }
-}
-
-@media only screen and (min-width: 720px) {
-    .twobuttons {
-        flex-direction: row;
-        --fs-size: 2em;
-        --border-right: 6px;
-    }
-
-    .guidebutton {
-        display: inline-block;
-        /* margin-left: 15px; */
-    }
-
-    .discordbutton {
-        margin-right: 15px;
-    }
-}
-
-
-/* === removing default button style ===*/
-.discordbutton,
-.guidebutton,
-.sponsorbutton {
-    cursor: pointer;
-    height: auto;
-    background: transparent;
-    padding: 0;
-    border: none;
-}
-
-/* button styling */
-.discordbutton,
-.guidebutton,
-.sponsorbutton {
-    --text-stroke-color: rgba(255, 255, 255, 1);
-    --animation-color: #ACAEFE;
-    letter-spacing: 3px;
-    text-decoration: none;
-    font-size: var(--fs-size);
-    font-family: "Arial";
-    position: relative;
-    text-transform: uppercase;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--text-stroke-color);
-}
-
-/* this is the text, when you hover on button */
-.hover-text {
-    position: absolute;
-    box-sizing: border-box;
-    content: attr(data-text);
-    color: var(--animation-color);
-    width: 0%;
-    inset: 0;
-    border-right: var(--border-right) solid var(--animation-color);
-    overflow: hidden;
-    transition: 0.5s;
-    -webkit-text-stroke: 1px var(--animation-color);
-}
-
-/* hover */
-.discordbutton:hover .hover-text,
-.guidebutton:hover .hover-text,
-.sponsorbutton:hover .hover-text {
-    width: 100%;
-    filter: drop-shadow(0 0 23px var(--animation-color))
-}
-
 .mobileButton {
-    position: fixed;
-    bottom: 5vw;
-    right: 7vw;
-    z-index: 10;
+  position: fixed;
+  bottom: 5vw;
+  right: 7vw;
+  z-index: 10;
 }
 
-@media only screen and (min-width: 700px){
-    .mobileButton{
-        display: none;
-    }
+@media only screen and (min-width: 700px) {
+  .mobileButton {
+    display: none;
+  }
 }
 
 .fixButton {
-    height: 65px;
-    width: 65px;
-    position: relative;
-    padding: 1em;
-    outline: none;
-    border: 1px solid #303030;
-    background: #212121;
-    color: #ae00ff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 15px;
-    overflow: hidden;
-    transition: 0.2s;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
+  height: 65px;
+  width: 65px;
+  position: relative;
+  padding: 1em;
+  outline: none;
+  border: 1px solid #303030;
+  background: #212121;
+  color: #ae00ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 15px;
+  overflow: hidden;
+  transition: 0.2s;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .fixButton:hover {
-    box-shadow: 0 0 10px #ae00ff, 0 0 25px #001eff, 0 0 50px #ae00ff;
-    transition-delay: 0.6s;
+  box-shadow: 0 0 10px #ae00ff, 0 0 25px #001eff, 0 0 50px #ae00ff;
+  transition-delay: 0.6s;
 }
 
 .fixButton span {
-    position: absolute;
+  position: absolute;
 }
 
 .fixButton span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ae00ff);
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ae00ff);
 }
 
 .fixButton:hover span:nth-child(1) {
-    left: 100%;
-    transition: 0.7s;
+  left: 100%;
+  transition: 0.7s;
 }
 
 .fixButton span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #001eff);
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #001eff);
 }
 
 .fixButton:hover span:nth-child(3) {
-    right: 100%;
-    transition: 0.7s;
-    transition-delay: 0.35s;
+  right: 100%;
+  transition: 0.7s;
+  transition-delay: 0.35s;
 }
 
 .fixButton span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #ae00ff);
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ae00ff);
 }
 
 .fixButton:hover span:nth-child(2) {
-    top: 100%;
-    transition: 0.7s;
-    transition-delay: 0.17s;
+  top: 100%;
+  transition: 0.7s;
+  transition-delay: 0.17s;
 }
 
 .fixButton span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #001eff);
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #001eff);
 }
 
 .fixButton:hover span:nth-child(4) {
-    bottom: 100%;
-    transition: 0.7s;
-    transition-delay: 0.52s;
+  bottom: 100%;
+  transition: 0.7s;
+  transition-delay: 0.52s;
 }
 
 .fixButton:active {
-    background: #ae00af;
-    background: linear-gradient(to top right, #ae00af, #001eff);
-    color: #bfbfbf;
-    box-shadow: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
-    transition: 0.1s;
+  background: #ae00af;
+  background: linear-gradient(to top right, #ae00af, #001eff);
+  color: #bfbfbf;
+  box-shadow: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
+  transition: 0.1s;
 }
 
-.fixButton:active span:nth-child(1) span:nth-child(2) span:nth-child(2) span:nth-child(2) {
-    transition: none;
-    transition-delay: none;
+.fixButton:active
+  span:nth-child(1)
+  span:nth-child(2)
+  span:nth-child(2)
+  span:nth-child(2) {
+  transition: none;
+  transition-delay: none;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform: scale(1);
+}
+
+.icon {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.text {
+  margin-left: 10px;
+  font-size: 18px;
+  opacity: 0;
+  white-space: nowrap;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover .text {
+  opacity: 1;
+  transform: scaleX(1);
+}
+/* 
+button.register-btn {
+  background-color: none;
+  text-decoration: none;
+  background-color: #212121;
+  border: none;
+
+  a {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #fefefe;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    color: #fefefe;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  a::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% - 12px);
+    background-color: #212121;
+    transition: 0.3s ease-in-out;
+    transform: scaleY(1);
+  }
+
+  a:hover::before {
+    transform: scaleY(0);
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: -2px;
+    height: calc(100% + 4px);
+    width: calc(100% - 12px);
+    background-color: #212121;
+    transition: 0.3s ease-in-out;
+    transform: scaleX(1);
+    transition-delay: 0.5s;
+  }
+
+  a:hover::after {
+    transform: scaleX(0);
+  }
+
+  a span {
+    position: relative;
+    z-index: 3;
+  }
+} */
+
+.buttons-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-buttons {
+    display: none;
+  }
+
+  .buttons-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    button {
+      padding: 10px 20px;
+      background-color: transparent;
+      border: none;
+      color: white;
+      display: flex;
+      gap: 0.1rem;
+      align-items: center;
+
+      .btn-icon {
+        width: 24px;
+        aspect-ratio: 1;
+      }
+    }
+  }
 }
