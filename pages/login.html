@@ -1,92 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IWOC'23 | Login</title>
-  <link rel="icon" type="image/x-icon" href="../public/img/Season_2/Iwoc_S2.png" />
-  <meta name="author" content="David Grzyb">
-  <meta name="description" content="">
-
-  <!-- Tailwind -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../public/css/particle.css" />
-  <link rel="stylesheet" href="../public/css/click-snow.css">
-  
-  <style>
-    @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-
-    .font-family-karla {
-      font-family: karla;
-    }
-    #login-logo{
-      width: 55%;
-      margin-left: 1%;
-      margin-top: -2%;
-      display: flex;
-      /* justify-content: center; */
-      flex-direction: row;
-    }
-
-    @media only screen and (man-width: 768px) {
-      .sideImage{
-        display: none;
-      }
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWOC'23 | Login</title>
+    <link rel="icon" type="image/x-icon" href="../public/img/Season_2/Iwoc_S2.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../public/css/particle.css" />
+    <link rel="stylesheet" href="../public/css/click-snow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     
-  </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a202c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+            overflow: hidden;
+        }
+
+        .splash-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .splash-logo {
+            width: 280px; 
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+        }
+
+        .snowflake {
+            color: #fff;
+            font-size: 2em; 
+            position: fixed;
+            top: -20px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); 
+            z-index: 1;
+            pointer-events: none;
+            animation: fall linear forwards;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-10vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        
+        body {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .glass-card {
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .github-button {
+            background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+            transition: all 0.3s ease;
+        }
+
+        .github-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                width: 90% !important;
+                margin: 0 auto;
+            }
+            .splash-logo {
+                width: 200px; 
+            }
+        }
+
+        .loading-text {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            letter-spacing: 0.1em;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
 </head>
 
-<script type="text/javascript" src="https://storage.yandexcloud.net/slaylines/uploads/snowflakes.min.1.0.0.js" defer></script>
 <body class="font-family-karla h-screen">
-
-
-  <div class="w-full flex flex-wrap">
-
-    <!-- Login Section -->
-    <div class="w-full md:w-1/2 flex flex-col">
-
-      <!-- <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24"> -->
-        <!-- <a href="/" class="bg-black text-white font-bold text-xl p-4">Logo</a> -->
-        <div id="login-logo">
-        <a href="/"><img src="../public/img/iwoc_logo.png" class="bg- text-white font-bold text-xl p-4 " /></a>
-      </div>
-      <!-- </div> -->
-
-      <div class="flex flex-col justify-center items-center md:justify-start pt-8 md:pt-0 px-8 md:px-24 lg:px-32" style="margin-top: 25%;">
-        <p class="text-center text-3xl text-white">Welcome.</p>
-        <a href="/auth/github">
-          <div class="flex justify-center mt-5">
-            <div
-              class="bg-white text-gray-900 hover:text-black shadow font-bold text-sm py-3 px-4 rounded flex justify-center items-center cursor-pointer w-64 mt-2">
-              <svg viewBox="0 0 24 24" class="fill-current mr-3 w-6 h-6" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-              </svg>
-              <span class="border-l border-white h-6 w-1 block mr-1"></span>
-              <span class="pl-3 text-black">Login with Github</span>
-            </div>
-          </div>
-        </a>
-        <div class="text-center pt-12 pb-12 text-white">
-          <p>Not a part of IWOC yet? 
-            <a href="https://iwoc.devfolio.co/" class="underline font-semibold">Register here.</a></p>
+    <div class="splash-screen" id="splash">
+        <div class="splash-content">
+            <img src="../public/img/iwoc_logo.png" alt="IWOC Logo" class="splash-logo animate__animated animate__bounceIn">
+            <div class="loading-text">Loading...</div>
         </div>
-      </div>
-
     </div>
 
-    <!-- Image Section -->
-    <div class="w-1/2 login-img">
-      <img class="object-cover h-screen hidden md:block sideImage" src="../public/img/Eat .Code. Sleep. (2).gif">
+    <div class="w-full flex justify-center items-center h-full" style="display: none;" id="main-content">
+        <div class="glass-card p-8 w-full sm:w-3/4 md:w-1/2 lg:w-1/3 animate__animated animate__fadeIn">
+            <div id="login-logo" class="flex justify-center mb-6">
+                <a href="/">
+                    <img src="../public/img/iwoc_logo.png" alt="IWOC Logo" class="w-40">
+                </a>
+            </div>
+
+            <p class="text-center text-3xl text-white mb-6">Welcome</p>
+
+            <a href="/auth/github">
+                <div class="github-button text-gray-900 shadow-md font-semibold text-sm py-3 px-4 rounded-lg flex justify-center items-center cursor-pointer w-full mt-2 mb-6">
+                    <svg viewBox="0 0 24 24" class="fill-current mr-3 w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    </svg>
+                    <span class="pl-3 text-black">Login with Github</span>
+                </div>
+            </a>
+
+            <div class="text-center pt-4 text-gray-700">
+                <p>Not a part of IWOC yet? 
+                    <a href="https://iwoc.devfolio.co/" class="underline font-semibold text-blue-600">Register here.</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="w-1/2 hidden md:block sideImage p-8">
+            <img class="object-cover h-full" src="../public/img/Eat .Code. Sleep. (2).gif" alt="Background Image">
+        </div>
     </div>
-  </div>
 
-  <!-- <script src="../public/js/particles.js"></script>
-  <script src="../public/js/particle.js"></script> -->
-  <script src="../public/js/snowflakes.js"></script>
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            
+            const size = (Math.random() * 0.5 + 1.5) + 'em';
+            snowflake.style.fontSize = size;
+            
+            const duration = (Math.random() * 3 + 4) + 's';
+            const delay = (Math.random() * 2) + 's';
+            snowflake.style.animationDuration = duration;
+            snowflake.style.animationDelay = delay;
 
+          
+            snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
+            
+            document.querySelector('.splash-screen').appendChild(snowflake);
+
+            
+            snowflake.addEventListener('animationend', () => {
+                snowflake.remove();
+            });
+        }
+
+        
+        const snowflakeInterval = setInterval(() => {
+            for(let i = 0; i < 3; i++) { 
+                createSnowflake();
+            }
+        }, 200);
+
+        
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash');
+                const mainContent = document.getElementById('main-content');
+                
+                
+                splash.style.opacity = '0';
+                clearInterval(snowflakeInterval);
+                
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    mainContent.style.display = 'flex';
+                }, 500);
+            }, 3000); 
+        });
+    </script>
+
+    <script src="../public/js/snowflakes.js"></script>
+    <script type="text/javascript" src="https://storage.yandexcloud.net/slaylines/uploads/snowflakes.min.1.0.0.js" defer></script>
 </body>
-
 </html>
