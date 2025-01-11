@@ -8,83 +8,147 @@
 } */
 
 .hero-section {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    position: relative;
-  }
-  
-  .buttons-left {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* position: relative; */
+}
+
+.buttons-left {
+  position: absolute;
+  top: 50vh;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.buttons-right {
+  position: absolute;
+  top: 50vh;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.logo-container {
+  /* max-height: 50vh; */
+  display: flex;
+  perspective: 800px;
+  position: relative;
+}
+
+.mainlogo {
+  /* display: grid; */
+  /* grid-template-rows: 200px 120px 40px; */
+  /* width: 260px; */
+  max-height: 50vh;
+  object-fit: contain;
+  /* border-radius: 8px; */
+  /* background: #fffeec; */
+  /* color: #01a977; */
+  /* padding: 16px; */
+  transition: transform 0.3s ease-out;
+}
+
+.mainlogo:hover {
+  transform: scale(1.1) rotateX(var(--x-rotation)) rotateY(var(--y-rotation));
+}
+
+.mainlogo-contour {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 999;
+
+  pointer-events: none;
+
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-size: cover;
+
+  -webkit-mask-image: url("../img/season_3/iwoc_logo_contour.png");
+  mask-image: url("../img/season_3/iwoc_logo_contour.png");
+
+  &:before {
+    content: "";
+    z-index: 10;
     position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    height: 200%;
+    width: 200%;
+    top: -120%;
+    left: -120%;
+    background: linear-gradient(
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 45%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.1) 55%,
+      transparent 100%
+    );
+    transition: all 2s;
+    transform: rotate(-45deg);
+    animation: shine 3s infinite forwards ease-in-out;
   }
-  
-  .buttons-right {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-  }
-  
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .logo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-  }
-  
-  .logo-container {
-    /* max-height: 50vh; */
-    display: flex;
-    perspective: 800px;
-    position: relative;
-  }
-  
-  .mainlogo {
-    /* display: grid; */
-    /* grid-template-rows: 200px 120px 40px; */
-    /* width: 260px; */
-    max-height: 50vh;
-    object-fit: contain;
-    /* border-radius: 8px; */
-    /* background: #fffeec; */
-    /* color: #01a977; */
-    /* padding: 16px; */
-    transition: transform 0.3s ease-out;
-  }
-  
-  .mainlogo:hover {
-    transform: scale(1.1) rotateX(var(--x-rotation)) rotateY(var(--y-rotation));
-  }
-  
-  .mainlogo-contour {
+}
+
+.logo-container:hover .mainlogo-background {
+  background: radial-gradient(
+    at var(--x, 50%) var(--y, 50%),
+    rgba(100, 181, 199, 0.3) 10%,
+    transparent 20%
+  );
+}
+
+.mainlogo-background {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.name-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-width: 100vw;
+
+  /* .namelogo {
+      max-height: 35vh;
+    } */
+
+  .contour {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
     height: 100%;
+    width: 100%;
     overflow: hidden;
     z-index: 999;
-  
-    pointer-events: none;
-  
+
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: cover;
     mask-repeat: no-repeat;
     mask-size: cover;
-  
-    -webkit-mask-image: url("../img/season_3/iwoc_logo_contour.png");
-    mask-image: url("../img/season_3/iwoc_logo_contour.png");
-  
+
+    -webkit-mask-image: url("../img/season_3/iwoc_text_logo_contour.png");
+    mask-image: url("../img/season_3/iwoc_text_logo_contour.png");
+
     &:before {
       content: "";
       z-index: 10;
@@ -105,194 +169,129 @@
       animation: shine 3s infinite forwards ease-in-out;
     }
   }
-  
-  .logo-container:hover .mainlogo-background {
-    background: radial-gradient(
-      at var(--x, 50%) var(--y, 50%),
-      rgba(100, 181, 199, 0.3) 10%,
-      transparent 20%
-    );
+}
+
+@keyframes shine {
+  0% {
+    top: -120%;
+    left: -120%;
   }
-  
-  .mainlogo-background {
-    pointer-events: none;
-    position: absolute;
-    inset: 0;
+  100% {
+    left: 100%;
+    top: 100%;
   }
-  
-  .name-container {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    max-width: 100vw;
-  
-    /* .namelogo {
-      max-height: 35vh;
-    } */
-  
-    .contour {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      z-index: 999;
-  
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-size: cover;
-      mask-repeat: no-repeat;
-      mask-size: cover;
-  
-      -webkit-mask-image: url("../img/season_3/iwoc_text_logo_contour.png");
-      mask-image: url("../img/season_3/iwoc_text_logo_contour.png");
-  
-      &:before {
-        content: "";
-        z-index: 10;
-        position: absolute;
-        height: 200%;
-        width: 200%;
-        top: -120%;
-        left: -120%;
-        background: linear-gradient(
-          transparent 0%,
-          rgba(255, 255, 255, 0.1) 45%,
-          rgba(255, 255, 255, 0.5) 50%,
-          rgba(255, 255, 255, 0.1) 55%,
-          transparent 100%
-        );
-        transition: all 2s;
-        transform: rotate(-45deg);
-        animation: shine 3s infinite forwards ease-in-out;
-      }
-    }
+}
+
+.hero-btn {
+  display: flex;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+
+  .btn-icon {
+    width: 24px !important;
+    aspect-ratio: 1;
   }
-  
-  @keyframes shine {
-    0% {
-      top: -120%;
-      left: -120%;
-    }
-    100% {
-      left: 100%;
-      top: 100%;
-    }
-  }
-  
-  .hero-btn {
-    display: flex;
-    gap: .5rem;
-    color: white;
-    text-decoration: none;
-  
-    .btn-icon {
-      width: 24px !important;
-      aspect-ratio: 1;
-    }
-  
-    .text {
-      /* opacity: 0;
+
+  .text {
+    /* opacity: 0;
       transition: opacity 300ms; */
-      width: 0;
-      overflow-x: hidden;
-      transition: width 300ms ease-in-out;
-    }
-  
-    &:hover {
-      .text {
-        /* opacity: 1; */
-        width: 100%;
-      }
-    }
+    width: 0;
+    overflow-x: hidden;
+    transition: width 300ms ease-in-out;
   }
-  
-  .card-cursor {
-    position: relative;
-  }
-  
-  .fancy-border1 {
-    height: 200px;
-    width: 200px;
-    border-radius: 30% 70% 57% 43% / 30% 30% 70% 70%;
-    background-color: rgba(255, 255, 255, 0.132);
-    position: absolute;
-    left: 20%;
-    top: 50%;
-    z-index: -10;
-    animation: change1 3s alternate 1s infinite ease-in-out;
-    transition: all;
-  }
-  
-  @keyframes change1 {
-    0% {
-      border-radius: 76% 24% 57% 43% / 30% 81% 19% 70%;
-    }
-    100% {
-      border-radius: 27% 73% 95% 20% / 72% 31% 69% 28%;
-      transform: translateX(-50px) translateY(50px);
+
+  &:hover {
+    .text {
+      /* opacity: 1; */
+      width: 100%;
     }
   }
-  @keyframes change2 {
-    0% {
-      border-radius: 50% 30% 20% 80% / 30% 81% 19% 70%;
-    }
-    100% {
-      border-radius: 27% 73% 67% 33% / 72% 31% 69% 28%;
-      transform: translateX(-100px) translateY(100px);
-    }
+}
+
+.card-cursor {
+  position: relative;
+}
+
+.fancy-border1 {
+  height: 200px;
+  width: 200px;
+  border-radius: 30% 70% 57% 43% / 30% 30% 70% 70%;
+  background-color: rgba(255, 255, 255, 0.132);
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  z-index: -10;
+  animation: change1 3s alternate 1s infinite ease-in-out;
+  transition: all;
+}
+
+@keyframes change1 {
+  0% {
+    border-radius: 76% 24% 57% 43% / 30% 81% 19% 70%;
   }
-  
-  .fancy-border2 {
-    height: 339px;
-    width: 339px;
-    border-radius: 30% 70% 57% 43% / 30% 30% 70% 70%;
-    background-color: rgba(255, 255, 255, 0.132);
-    position: absolute;
-    right: 10%;
-    z-index: -10;
-    top: 10%;
-    animation: change2 5s alternate 1s infinite ease-in-out;
-    transition: all;
+  100% {
+    border-radius: 27% 73% 95% 20% / 72% 31% 69% 28%;
+    transform: translateX(-50px) translateY(50px);
   }
-  @media screen and (max-width: 600px) {
-    /* .fancy-border1 {
+}
+@keyframes change2 {
+  0% {
+    border-radius: 50% 30% 20% 80% / 30% 81% 19% 70%;
+  }
+  100% {
+    border-radius: 27% 73% 67% 33% / 72% 31% 69% 28%;
+    transform: translateX(-100px) translateY(100px);
+  }
+}
+
+.fancy-border2 {
+  height: 339px;
+  width: 339px;
+  border-radius: 30% 70% 57% 43% / 30% 30% 70% 70%;
+  background-color: rgba(255, 255, 255, 0.132);
+  position: absolute;
+  right: 10%;
+  z-index: -10;
+  top: 10%;
+  animation: change2 5s alternate 1s infinite ease-in-out;
+  transition: all;
+}
+@media screen and (max-width: 600px) {
+  /* .fancy-border1 {
       display: none;
     }
     .fancy-border2 {
       height: 200px;
       width: 200px;
     } */
-    
-    .logo-container {
-      margin: 2rem 0;
-      
-      .mainlogo {
-        max-width: 60vw;
-      }
-    }
-  
-    .name-container {
-      .namelogo {
-        max-width: 90vw;
-      }
-    }
-  
-    svg {
-      width: 1rem;
-      /* aspect-ratio: 1; */
-    }
-  
-    .logo {
-      margin-top: 4rem;
+
+  .logo-container {
+    margin: 2rem 0;
+
+    .mainlogo {
+      max-width: 60vw;
     }
   }
-  @media only screen and (min-width: 720px) {
-    .logo-container {
-      margin-top: 8%;
-      /* width: 40%; */
+
+  .name-container {
+    .namelogo {
+      max-width: 90vw;
     }
   }
-  
+
+  svg {
+    width: 1rem;
+    /* aspect-ratio: 1; */
+  }
+
+  .logo {
+    margin-top: 4rem;
+  }
+}
+@media only screen and (min-width: 720px) {
+  .logo-container {
+    margin-top: 8%;
+    /* width: 40%; */
+  }
+}

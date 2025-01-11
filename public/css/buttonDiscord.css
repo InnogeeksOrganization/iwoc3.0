@@ -204,14 +204,55 @@ button.register-btn {
 
 .buttons-mobile {
   display: none;
+
+  button {
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.5em;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px #000000b4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-btn-container {
+    position: relative;
+    padding: 3px;
+    background: linear-gradient(90deg, #03a9f4, #f441a5);
+    border-radius: 0.9em;
+    transition: all 0.4s ease;
+  }
+
+  .hero-btn-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border-radius: 0.9em;
+    z-index: -10;
+    filter: blur(0);
+    transition: filter 0.4s ease;
+  }
+
+  .hero-btn-container:hover::before {
+    background: linear-gradient(90deg, #03a9f4, #f441a5);
+    filter: blur(1.2em);
+  }
+  .hero-btn-container:active::before {
+    filter: blur(0.2em);
+  }
 }
 
 .buttons-desktop {
   display: flex;
   gap: 20px;
   padding: .5rem 0;
+  padding-bottom: 3rem;
 
-  /* From Uiverse.io by Spacious74 */
   button {
     font-size: 1.4em;
     padding: 0.6em 0.8em;
@@ -260,9 +301,17 @@ button.register-btn {
   .buttons-mobile {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
 
-    button {
+    .btn-icon {
+      width: 24px;
+      aspect-ratio: 1;
+      margin-right: .2rem;
+    }
+
+    /* button {
       padding: 10px 20px;
       background-color: transparent;
       border: none;
@@ -271,10 +320,7 @@ button.register-btn {
       gap: 0.1rem;
       align-items: center;
 
-      .btn-icon {
-        width: 24px;
-        aspect-ratio: 1;
-      }
-    }
+      
+    } */
   }
 }
