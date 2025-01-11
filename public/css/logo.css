@@ -267,9 +267,10 @@
     } */
     
     .logo-container {
-      /* margin-top: 10%; */
+      margin: 2rem 0;
+      
       .mainlogo {
-        max-width: 90vw;
+        max-width: 60vw;
       }
     }
   
