@@ -82,8 +82,8 @@
     mask-repeat: no-repeat;
     mask-size: cover;
   
-    -webkit-mask-image: url("../img/season_3/logo-contour.png");
-    mask-image: url("../img/season_3/logo-contour.png");
+    -webkit-mask-image: url("../img/season_3/iwoc_logo_contour.png");
+    mask-image: url("../img/season_3/iwoc_logo_contour.png");
   
     &:before {
       content: "";

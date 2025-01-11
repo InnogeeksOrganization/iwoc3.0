@@ -87,48 +87,48 @@ router.get("/login",
   }
 );
 
-router.get("/dashboard",
-  async (req, res, next) => {
-    if (req.session.passport && (await Exists(req.session.passport.user))) next();
-    else res.redirect("/login");
-  }, 
-  async (req, res, next) => {
-    if (await Registered(req.session.passport.user)) next();
-    else{
-      await User.deleteOne({_id:req.session.passport.user});
-      res.redirect("/unauthenticated"); 
-    } 
-  },
-  async (req, res, next) => {
-    const user = await User.findById(req.session.passport.user);
-    res.render("dashboard", { user: user });
-  }
-);
+// router.get("/dashboard",
+//   async (req, res, next) => {
+//     if (req.session.passport && (await Exists(req.session.passport.user))) next();
+//     else res.redirect("/login");
+//   }, 
+//   async (req, res, next) => {
+//     if (await Registered(req.session.passport.user)) next();
+//     else{
+//       await User.deleteOne({_id:req.session.passport.user});
+//       res.redirect("/unauthenticated"); 
+//     } 
+//   },
+//   async (req, res, next) => {
+//     const user = await User.findById(req.session.passport.user);
+//     res.render("dashboard", { user: user });
+//   }
+// );
 
-router.get("/dashboard/leaderboard",
-  async (req, res, next) => {
-    if (req.session.passport && (await Exists(req.session.passport.user))) next();
-    else res.redirect("/login");
-  },
-  async (req, res, next) => {
-    if (await Registered(req.session.passport.user)) next();
-    else{
-      await User.deleteOne({_id:req.session.passport.user});
-      res.redirect("/unauthenticated");
-    } 
-  },
-  async (req, res, next) => {
-    const user_t = await User.findById(req.session.passport.user);
-    const users = await User.find();
-    await users.sort(function(a, b){return b.score - a.score});
-    const rank = users.map(e => e.username).indexOf(user_t.username) + 1;
-    if(req.query.user){
-      const user = await User.findOne({username:req.query.user});
-      res.render("history", { user_t:user_t,user: user,rank:rank });
-    }
-    else res.render("leaderboard", { user: user_t,users: users, rank:rank});
-  }
-);
+// router.get("/dashboard/leaderboard",
+//   async (req, res, next) => {
+//     if (req.session.passport && (await Exists(req.session.passport.user))) next();
+//     else res.redirect("/login");
+//   },
+//   async (req, res, next) => {
+//     if (await Registered(req.session.passport.user)) next();
+//     else{
+//       await User.deleteOne({_id:req.session.passport.user});
+//       res.redirect("/unauthenticated");
+//     } 
+//   },
+//   async (req, res, next) => {
+//     const user_t = await User.findById(req.session.passport.user);
+//     const users = await User.find();
+//     await users.sort(function(a, b){return b.score - a.score});
+//     const rank = users.map(e => e.username).indexOf(user_t.username) + 1;
+//     if(req.query.user){
+//       const user = await User.findOne({username:req.query.user});
+//       res.render("history", { user_t:user_t,user: user,rank:rank });
+//     }
+//     else res.render("leaderboard", { user: user_t,users: users, rank:rank});
+//   }
+// );
 
 router.get("/logout", (req, res, next) => {
   req.logout((err) => {
@@ -168,10 +168,10 @@ router.get("/unauthenticated", async (req, res, next) => {
 
 // // ************************ PROJECT RELATED ROUTES *********************************
 
-router.get("/projects", async (req, res, next) => {
-  const projects = await Project.find();
-  res.render("project", {project : projects});
-});
+// router.get("/projects", async (req, res, next) => {
+//   const projects = await Project.find();
+//   res.render("project", {project : projects});
+// });
 
 // router.post("/register-project",
 //   async (req, res, next) => {
