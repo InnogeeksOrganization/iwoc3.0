@@ -44,48 +44,48 @@ const Exists = async (id) => {
   return false;
 }
 
-router.get("/register",
-  async (req, res, next) => {
-    if (req.session.passport && (await Exists(req.session.passport.user))) next();
-    else res.sendFile(path.join(__dirname, "../pages/form.html"));
-  },
-  async (req, res, next) => {
-    if (await Registered(req.session.passport.user)) res.redirect("/dashboard");
-    else next();
-  },
-  (req, res, next) => {
-    res.sendFile(path.join(__dirname, "../pages/form.html"));
-  }
-);
+// router.get("/register",
+//   async (req, res, next) => {
+//     if (req.session.passport && (await Exists(req.session.passport.user))) next();
+//     else res.sendFile(path.join(__dirname, "../pages/form.html"));
+//   },
+//   async (req, res, next) => {
+//     if (await Registered(req.session.passport.user)) res.redirect("/dashboard");
+//     else next();
+//   },
+//   (req, res, next) => {
+//     res.sendFile(path.join(__dirname, "../pages/form.html"));
+//   }
+// );
 
-router.post("/register",
-  async (req, res) => {
-    if (validateData(req.body)) {
-      console.log(req.body);
+// router.post("/register",
+//   async (req, res) => {
+//     if (validateData(req.body)) {
+//       console.log(req.body);
       
-      const resp = await UserHandler.addUser(req.body);
-      res.send(JSON.stringify(resp));
-    }
-    else{
-      const resp = {message: "Invalid Data"};
-      res.send(JSON.stringify(resp));
-    } 
-  }
-);
+//       const resp = await UserHandler.addUser(req.body);
+//       res.send(JSON.stringify(resp));
+//     }
+//     else{
+//       const resp = {message: "Invalid Data"};
+//       res.send(JSON.stringify(resp));
+//     } 
+//   }
+// );
 
-router.get("/login",
-  async (req, res, next) => {
-    if (req.session.passport && (await Exists(req.session.passport.user))) next();
-    else res.sendFile(path.join(__dirname, "../pages/login.html"));
-  },
-  async (req, res, next) => {
-    if (await Registered(req.session.passport.user)) res.redirect("/dashboard");
-    else next();
-  },
-  (req, res, next) => {
-    res.sendFile(path.join(__dirname, "../pages/login.html"));
-  }
-);
+// router.get("/login",
+//   async (req, res, next) => {
+//     if (req.session.passport && (await Exists(req.session.passport.user))) next();
+//     else res.sendFile(path.join(__dirname, "../pages/login.html"));
+//   },
+//   async (req, res, next) => {
+//     if (await Registered(req.session.passport.user)) res.redirect("/dashboard");
+//     else next();
+//   },
+//   (req, res, next) => {
+//     res.sendFile(path.join(__dirname, "../pages/login.html"));
+//   }
+// );
 
 // router.get("/dashboard",
 //   async (req, res, next) => {
@@ -130,16 +130,16 @@ router.get("/login",
 //   }
 // );
 
-router.get("/logout", (req, res, next) => {
-  req.logout((err) => {
-    if (err) return next(err);
-    res.redirect("/");
-  });
-});
+// router.get("/logout", (req, res, next) => {
+//   req.logout((err) => {
+//     if (err) return next(err);
+//     res.redirect("/");
+//   });
+// });
 
-router.get("/unauthenticated", async (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../pages/unauthenticated.html"));
-});
+// router.get("/unauthenticated", async (req, res, next) => {
+//   res.sendFile(path.join(__dirname, "../pages/unauthenticated.html"));
+// });
 
 // // ************************ --------------------- *********************************
 
