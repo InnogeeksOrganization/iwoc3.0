@@ -19,11 +19,10 @@ const addProject = async (data) => {
       owner: ownerId,
       repo: repoName
     });
-  
     let projects = await Project.findOne({projectId: resp.data.id});
     if(projects == null){
       await Project.create({
-        projectId: 0,
+        projectId: resp.data.id,
         projectName: data.projectName,
         projectDesc: data.description,
         repoId: resp.data.id,
@@ -31,9 +30,9 @@ const addProject = async (data) => {
         repoUrl:resp.data.html_url,
         repoDesc:resp.data.description,
         language: [resp.data.language],
-        topic: resp.data.topic,
+        // topic: resp.data.topic,
         open_issues: resp.data.open_issues,
-        stars: resp.data.stargrazers_count,
+        stars: resp.data.stargazers_url.length,
         difficulty: "Intermediate",
         owner: {
             ownerName: data.name,

@@ -15,7 +15,7 @@ const projectSchema = new mongoose.Schema({
     projectUrl:String,
     description:String,
     language: [String],
-    topic: [String],
+    // topic: [String],
     open_issues: Number,
     stars: Number,
     difficulty: String,
