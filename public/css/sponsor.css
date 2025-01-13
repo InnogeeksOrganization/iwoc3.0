@@ -44,7 +44,7 @@
 .sponsor-card {
   border-radius: 12px;
   padding: 1.5rem;
-  width: 400px;
+  max-width: 400px;
   height: 200px;
   display: flex;
   justify-content: center;
@@ -55,7 +55,7 @@
 }
 
 .sponsor-card.gradient-blue {
-  background: linear-gradient(135deg, #114353, #87ceeb);
+  background: linear-gradient(135deg, #114353, #96aeea);
 }
 
 .sponsor-card.gradient-orange {
