@@ -52,19 +52,30 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  background-color: #2d3436;
 }
 
-.sponsor-card.gradient-blue {
+.sponsor-platinum {
+  /* background: linear-gradient(135deg, #e5e5e5, #ffffff); */
+  background: linear-gradient(135deg, rgba(229, 229, 229, 0.3), rgba(255, 255, 255, 0.1));
+}
+
+.sponsor-gold {
+  /* background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 244, 204, 0.1)); */
+  background: linear-gradient(135deg, rgba(255, 223, 77, 0.3), rgba(255, 249, 214, 0.1));
+}
+
+/* .sponsor-card.gradient-blue {
   background: linear-gradient(135deg, #114353, #96aeea);
-}
-
+} */
+/* 
 .sponsor-card.gradient-orange {
   background: linear-gradient(135deg, #452a0e, #ffa07a);
-}
+} */
 
-.sponsor-card.gradient-purple {
+/* .sponsor-card.gradient-purple {
   background: linear-gradient(135deg, #20114c, #b19cd9);
-}
+} */
 
 .sponsor-card:hover {
   transform: translateY(-10px);

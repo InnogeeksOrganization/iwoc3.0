@@ -46,6 +46,21 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* .about-head {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+
+  img {
+    max-width: 192px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+} */
+
 .about-iwoc1,
 .about-iwoc2 {
   padding: 20px;
@@ -53,6 +68,14 @@
   height: 100%;
   grid-row: span 2;
 }
+
+/* .about-iwoc1 {
+  background-image: url("../img/season_3/iwoc1_logo.png");
+  background-size: contain;
+  background-position-x: -50%;
+  background-position-y: -128px;
+  background-repeat: no-repeat;
+} */
 
 .about-card-heading {
     font-size: 1.5rem;
@@ -73,29 +96,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  backdrop-filter: blur(20px);
-  background-color: rgba(65, 65, 65, 0.308);
+  /* aspect-ratio: 1; */
+  /* width: 120px; */
+  /* height: 120px; */
+  /* padding: .5rem; */
+  /* border-radius: 50%; */
+  /* backdrop-filter: blur(20px); */
+  /* background-color: rgba(65, 65, 65, 0.308); */
   text-align: center;
   transition: scale 300ms;
   cursor: pointer;
+  font-family: Poppins;
+
+  .city {
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    margin: 0;
+  }
+
+  .weather {
+    font-size: 1rem;
+    color: rgb(197, 197, 197);
+    margin: 0;
+  }
 
   &:hover {
     scale: 1.25;
   }
-}
-
-.city {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
-}
-
-.weather {
-  font-size: 0.9rem;
-  color: rgb(197, 197, 197);
 }
 
 @media only screen and (max-width: 900px) {
@@ -123,4 +151,9 @@
       align-self: center;
     }
   }
+
+  .mobile-text-sm {
+    font-size: .9rem;
+  }
 }
+
