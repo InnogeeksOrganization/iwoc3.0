@@ -27,6 +27,10 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../pages/landing.html"));
 });
 
+router.get("/robots.txt", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/robots.txt"));
+});
+
 
 // ********************* USER RELATED ROUTES ************************************
 
