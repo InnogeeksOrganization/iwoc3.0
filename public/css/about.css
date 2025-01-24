@@ -25,9 +25,9 @@
 
 .about-grid {
   display: grid;
-  grid-template-rows: 2fr 1fr 2fr;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-flow: column;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  /* grid-auto-flow: column; */
   gap: 2rem;
   width: 100%;
   height: 100%;
@@ -44,6 +44,7 @@
   border-radius: 1rem;
   backdrop-filter: blur(3.1px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  grid-column: span 2;
 }
 
 /* .about-head {
@@ -66,7 +67,7 @@
   padding: 20px;
   width: 100%;
   height: 100%;
-  grid-row: span 2;
+  grid-column: span 3;
 }
 
 /* .about-iwoc1 {
@@ -107,6 +108,7 @@
   transition: scale 300ms;
   cursor: pointer;
   font-family: Poppins;
+  /* grid-column: span 2; */
 
   .city {
     font-size: 2rem;

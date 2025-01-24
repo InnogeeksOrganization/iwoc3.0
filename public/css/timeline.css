@@ -42,7 +42,7 @@ Main components
   left: 25px;
   height: 100%;
   width: 4px;
-  background: #c926a0;
+  background: #07395a;
 }
 
 @media only screen and (min-width: 1170px) {
@@ -117,13 +117,15 @@ Main components
   box-shadow: 0 4px 15px #d485c755;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  background: linear-gradient(to right, #3e83c3, rgb(199, 108, 199));
+  background: linear-gradient(to right, #3e83c3, rgb(91, 110, 150));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   /* border: 2px solid ; */
   border: 2px solid;
-  border-image: linear-gradient(45deg, #277ac8, #da4c61,#9445c8,#30c07392) 1;
+  border-image: linear-gradient(45deg, #277ac8, #4cbeda,#23748d,#b8cdd392) 1;
+  box-shadow: 2px 2px 8px 0px #4cbeda7e;
 }
+
 .cd-timeline-content .timeline-content-info {
   background: rgb(136, 12, 121);
   padding: 5px 10px;
