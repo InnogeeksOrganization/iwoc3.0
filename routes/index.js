@@ -132,12 +132,12 @@ router.get("/dashboard/leaderboard",
   }
 );
 
-// router.get("/logout", (req, res, next) => {
-//   req.logout((err) => {
-//     if (err) return next(err);
-//     res.redirect("/");
-//   });
-// });
+router.get("/logout", (req, res, next) => {
+  req.logout((err) => {
+    if (err) return next(err);
+    res.redirect("/");
+  });
+});
 
 router.get("/unauthenticated", async (req, res, next) => {
   res.sendFile(path.join(__dirname, "../pages/unauthenticated.html"));
