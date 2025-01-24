@@ -24,7 +24,7 @@
 }
 
 .about-block {
-  min-height: 80vh;
+  min-height: 60vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
@@ -40,7 +40,7 @@
 
     .stat-logo {
       img {
-        max-width: 416px;
+        max-width: 384px;
         margin: 0 auto;
         animation: float 6s ease-in-out infinite;
       }
@@ -72,12 +72,12 @@
         }
 
         .stat-number {
-          font-size: 1.6rem;
+          font-size: 1.4rem;
           font-weight: bolder;
         }
 
         .stat-title {
-          font-size: 1.2rem;
+          font-size: 1.1rem;
         }
       }
     }
@@ -91,21 +91,28 @@
       padding-bottom: 2rem;
     }
 
-    ul {
+    /* ul {
       list-style: none;
-    }
+    } */
 
     li {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: rgba(255, 255, 255, 0.8);
       padding: 0.5rem 0;
     }
 
     li > ul {
       padding-left: 2rem;
+      list-style-position: outside;
 
       li {
-        padding: 0;
+        /* padding: 0; */
+        padding-left: .5rem;
+
+        &::marker {
+          content: "🔊";
+          
+        }
       }
     }
   }
