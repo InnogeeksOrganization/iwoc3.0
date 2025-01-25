@@ -166,18 +166,18 @@ const Exists = async (id) => {
 
 // // ************************ PROJECT RELATED ROUTES *********************************
 
-// router.get("/projects", async (req, res, next) => {
-//   const projects = await Project.find();
-//   res.render("project", {project : projects});
-// });
+router.get("/projects", async (req, res, next) => {
+  const projects = await Project.find();
+  res.render("project", {project : projects});
+});
 
-// router.post("/register-project",
-//   async (req, res, next) => {
-//     await ProjectHandler.addProject(req.body);
-//   }, (req, res) => {
-//     res.send("Done");
-//   }
-// );
+router.post("/register-project",
+  async (req, res, next) => {
+    await ProjectHandler.addProject(req.body);
+  }, (req, res) => {
+    res.send("Done");
+  }
+);
 
 // // OR
 // // OR
