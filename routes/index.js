@@ -175,13 +175,13 @@ router.get("/projects", async (req, res, next) => {
   res.render("project", {project : projects});
 });
 
-// router.post("/register-project",
-//   async (req, res, next) => {
-//     await ProjectHandler.addProject(req.body);
-//   }, (req, res) => {
-//     res.send("Done");
-//   }
-// );
+router.post("/register-project",
+  async (req, res, next) => {
+    await ProjectHandler.addProject(req.body);
+  }, (req, res) => {
+    res.send("Done");
+  }
+);
 
 // // OR
 // // OR

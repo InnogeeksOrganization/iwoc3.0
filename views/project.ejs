@@ -100,7 +100,7 @@
           align-items: center;
         "
       >
-        <div
+        <!-- <div
           class="card"
           onclick="window.open('<%= project[i].projectUrl %>','mywindow');"
           style="cursor: pointer"
@@ -125,6 +125,38 @@
               </span>
               <% }%>
             </p>
+          </div>
+          <div class="flex items-center" >
+             <p class="" style="overflow: hidden">
+              open issues: <%= project[i].open_issues %>
+            </p>
+             <p class="" style="overflow: hidden">
+              stars: <%= project[i].stars %>
+            </p>
+          </div>
+        </div> -->
+        <div class="card">
+          <header class="card-header">
+            <p><%= project[i].date %></p>
+            <div class="title"><%= project[i].projectName %></div>
+          </header>
+
+          <div class="desc"><%= project[i].description %></div>
+
+          <div class="tags">
+            <p>Open issues: <%= project[i].open_issues %></p>
+            <p style="display: flex">
+              <img
+                style="width: 26px; height: 26px"
+                src="../public/img/star.png"
+              />:<%= project[i].stars %>
+            </p>
+          </div>
+
+          <div class="tags">
+            <% for(var j=0; j < project[i].language.length; j++) { %>
+            <p><%= project[i].language[j] %></p>
+            <% }%>
           </div>
         </div>
       </div>
