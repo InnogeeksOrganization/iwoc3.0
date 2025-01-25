@@ -91,9 +91,9 @@
       padding-bottom: 2rem;
     }
 
-    /* ul {
+    ul {
       list-style: none;
-    } */
+    }
 
     li {
       font-size: 1.2rem;
@@ -103,6 +103,7 @@
 
     li > ul {
       padding-left: 2rem;
+      list-style: none;
       list-style-position: outside;
 
       li {
@@ -124,7 +125,7 @@
 
 @media only screen and (max-width: 900px) {
   .about {
-    padding: 1rem 0.5rem;
+    padding: 2rem 1rem;
   }
 
   .about-block {
