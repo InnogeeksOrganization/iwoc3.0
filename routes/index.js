@@ -172,7 +172,7 @@ router.get("/unauthenticated", async (req, res, next) => {
 
 router.get("/projects", async (req, res, next) => {
   const projects = await Project.find();
-  res.render("project", {project : projects});
+  res.render("project", {projects});
 });
 
 // router.post("/register-project",

@@ -88,75 +88,66 @@
 
     <div class="projecttitle">Projects</div>
 
+    <!-- <div class="scroll-div">
+      <svg style="filter: invert(); max-height: 128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 90 112.5" enable-background="new 0 0 90 90" xml:space="preserve"><circle cx="45" cy="13" r="3"/><path d="M45,0.5c-8.284,0-15,6.717-15,15.002v24.996C30,48.783,36.716,55.5,45,55.5s15-6.717,15-15.002V15.502  C60,7.217,53.284,0.5,45,0.5z M58,40.498C58,47.667,52.168,53.5,45,53.5c-7.168,0-13-5.833-13-13.002V15.502  C32,8.333,37.832,2.5,45,2.5c7.168,0,13,5.833,13,13.002V40.498z"/><path d="M58.293,59.793L45,73.086L31.707,59.793c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414l14,14  C44.488,75.402,44.744,75.5,45,75.5s0.512-0.098,0.707-0.293l14-14c0.391-0.391,0.391-1.023,0-1.414S58.684,59.402,58.293,59.793z"/><path d="M58.293,73.793L45,87.086L31.707,73.793c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414l14,14  C44.488,89.402,44.744,89.5,45,89.5s0.512-0.098,0.707-0.293l14-14c0.391-0.391,0.391-1.023,0-1.414S58.684,73.402,58.293,73.793z"/></svg>
+      <p>Scroll Down</p>
+    </div> -->
+
     <!-- cards -->
     <div class="projectsGrid">
-      <% for (var i=0; i < project.length; i++) { %>
+      <% for (const project of projects) { %>
       <div
-        data-aos="zoom-in"
+        data-aos="fade-up"
         style="
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
         "
+        class="card-container"
       >
-        <!-- <div
-          class="card"
-          onclick="window.open('<%= project[i].projectUrl %>','mywindow');"
-          style="cursor: pointer"
-        >
-          <p class="heading" style="overflow: hidden">
-            <%= project[i].projectName %>
-          </p>
-          <p style="overflow: hidden"><%= project[i].description %>&nbsp;</p>
-          <div
-            class=""
-            style="
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: center;
-              overflow: hidden;
-            "
-          >
-            <p>
-              <% for(var j=0; j < project[i].language.length; j++) { %>
-              <span class="text-center tech" style="margin: 2%">
-                <span> <%= project[i].language[j] %> </span>
-              </span>
-              <% }%>
-            </p>
-          </div>
-          <div class="flex items-center" >
-             <p class="" style="overflow: hidden">
-              open issues: <%= project[i].open_issues %>
-            </p>
-             <p class="" style="overflow: hidden">
-              stars: <%= project[i].stars %>
-            </p>
-          </div>
-        </div> -->
         <div class="card">
           <header class="card-header">
-            <p><%= project[i].date %></p>
-            <div class="title"><%= project[i].projectName %></div>
+            <a class="title" href="<%= project.projectUrl %>" target="_blank"><%= project.projectName %>
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </div>
+            </a>
+            <div class="repo-stats">
+              <div class="repo-stars">
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+                </span> <%= project.stars %>
+              </div>
+              <div class="repo-issues">
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dot"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1"/></svg>
+                </span> <%= project.open_issues %>
+              </div>
+              <!-- <div class="repo-forks">
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-fork"><circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"/><path d="M12 12v3"/></svg>
+                </span> 55
+              </div> -->
+            </div>
+
+            <div class="tags">
+              <% for( const topic of project._doc.topic.slice(0, 4) ) { %>
+                <span class="pill"><%= topic %></span>
+              <% } %>
+              <!-- <%= project._doc.topic %> -->
+            </div>
           </header>
 
-          <div class="desc"><%= project[i].description %></div>
-
-          <div class="tags">
-            <p>Open issues: <%= project[i].open_issues %></p>
-            <p style="display: flex">
-              <img
-                style="width: 26px; height: 26px"
-                src="../public/img/star.png"
-              />:<%= project[i].stars %>
-            </p>
-          </div>
-
-          <div class="tags">
-            <% for(var j=0; j < project[i].language.length; j++) { %>
-            <p><%= project[i].language[j] %></p>
-            <% }%>
+          <div class="bottom">
+            <div class="languages">
+              <% for(var j=0; j < project.language.length; j++) { %>
+              <p class="repo-language"><%= project.language[j] %></p>
+              <% }%>
+            </div>
+  
+            <div class="desc flex items-end justify-center"><%= project.description.substring(0, 110) %><% if (project.description.length > 125) { %>...<% } %>
+            </div>  
           </div>
         </div>
       </div>
@@ -172,11 +163,29 @@
 
     <script src="../public/js/click_snow.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="../public/js/particles-project.js"></script>
-    <script src="../public/js/particle-project.js"></script>
+    <!-- <script src="../public/js/particles-project.js"></script>
+    <script src="../public/js/particle-project.js"></script> -->
     <script src="../public/js/navbar.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../public/js/snowflakes.js"></script>
+    <script>
+      function updateAOSDelays() {
+        const cards = document.querySelectorAll('.card-container');
+        const screenWidth = window.innerWidth;
+
+        cards.forEach((card, index) => {
+          if (screenWidth <= 888) {
+            card.setAttribute('data-aos-delay', '0');
+          } else if (screenWidth > 888 && screenWidth < 1406) {
+            card.setAttribute('data-aos-delay', (index % 2 === 1) ? '100' : '0');
+          } else if (screenWidth >= 1406) {
+            card.setAttribute('data-aos-delay', `${(index % 3) * 100}`);
+          }
+        });
+      }
+      updateAOSDelays();
+      window.addEventListener('resize', updateAOSDelays);
+    </script>
     <script>
       AOS.init();
     </script>

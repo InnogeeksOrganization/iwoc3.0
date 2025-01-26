@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .projectsGrid {
   margin: 0 10% 10% 10%;
   display: grid;
@@ -37,27 +40,13 @@
   /* color: #ffffff; */
   font-weight: bold;
   text-align: center;
-  margin-bottom: 10%;
+  /* margin-bottom: 10%; */
+  margin-bottom: 4rem;
   font-size: 4rem;
   background: linear-gradient(to right, #c5dbf0, rgb(135, 178, 206));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   /* font-weight: bold; */
-}
-
-.card {
-  position: relative;
-  width: 254px;
-  height: 354px;
-  background-color: #000;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  padding: 12px;
-  gap: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  color: white;
 }
 
 .card::before {
@@ -124,6 +113,10 @@
   display: flex;
   position: relative;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  color: white;
   height: 350px;
   width: 190px;
   min-width: 350px;
@@ -152,7 +145,7 @@
 
 .desc {
   color: #7a7a8c;
-  height: 50%;
+  /* height: 50%; */
   overflow: hidden;
 }
 
@@ -165,26 +158,75 @@ color: linear-gradient(#4bb852 0%,
 .card-header p {
   font-size: 14px;
   margin: 0 0 1rem;
+  overflow: hidden;
 }
 
 .card-header .title {
   font-size: 25px;
   margin: .25rem 0 auto;
   cursor: pointer;
-  font-family: 'Arial Black', sans-serif;
+  font-family: Prompt, sans-serif;
+  font-weight: 700;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .card-header .title:hover {
-  background: linear-gradient(90deg, #4bb852 0%,
-    #00dbde 100%);
-  text-shadow: none;
+  /* background: linear-gradient(90deg, #4bb852 0%,
+    #00dbde 100%); */
+  /* text-shadow: none;
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
+  text-decoration: underline;
 }
 
 .tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .25rem;
+
+  .pill {
+    padding: .25rem .5rem;
+    border: 1px solid rgba(255, 255, 255, .45);
+    border-radius: 1rem;
+
+  }
+}
+
+.languages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .75rem 0;
+}
+
+.repo-language {
+  background: linear-gradient(45deg, #4bb852 0%,
+  #00dbde 100%);
+  color: transparent !important;
+  background-clip: text;
+  /* font-weight: bold; */
+  font-family: Prompt, Inter, sans-serif;
+  padding: .25rem .5rem;
+  border-radius: 1rem;
+  /* border: 2px solid transparent; */
+  /* border-image: linear-gradient(45deg, #4bb852 0%,
+  #00dbde 100%); */
+}
+
+.scroll-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+/* .tags {
   margin: 0.2rem 0 0.2rem;
   padding: .5rem 0 .1rem;
   line-height: 2;
@@ -216,4 +258,23 @@ color: linear-gradient(#4bb852 0%,
   box-decoration-break: clone;
   background-clip: text;
   border-color: white;
+} */
+
+.repo-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  gap: .5rem;
+  padding: .5rem 0;
+
+  .repo-stars {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.icon svg {
+  display: inline;
+  margin: 0 .25rem;
 }

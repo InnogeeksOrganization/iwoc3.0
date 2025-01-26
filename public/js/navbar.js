@@ -1,6 +1,8 @@
 if(window.innerWidth>768){
 	window.addEventListener('scroll', function () {
 	var navLogo = document.querySelector('.nav-logo');
+	if (!navLogo)
+		return;
 	if (window.scrollY > 500) {
 	  navLogo.classList.remove("none") 
 	} else {
@@ -10,6 +12,8 @@ if(window.innerWidth>768){
 }
 else{
 	var navLogo = document.querySelector('.nav-logo');
+	if (!navLogo)
+		return;
 	navLogo.classList.remove("none") 
 }
 

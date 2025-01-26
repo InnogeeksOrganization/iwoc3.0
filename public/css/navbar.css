@@ -609,15 +609,15 @@
     font-size: 1.2rem;
     color: #A4BEE1 !important;
     font-weight: bold;
-    text-decoration: underline;
+    /* text-decoration: underline; */
   }
 
   .navigation-wrap ul.navbar-nav {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: .25rem;
     justify-content: center;
-    flex-direction: row;
     padding: .75rem 0;
   
     /* li {
