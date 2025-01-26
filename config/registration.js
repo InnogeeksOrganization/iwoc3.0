@@ -51,7 +51,7 @@ const addUser = async (data) => {
     }
 };
 
-const data = fs.readFileSync('sample.csv', 'utf8').split("\n");
+const data = fs.readFileSync('config/sample.csv', 'utf8').split("\n");
 console.log("length = ", data.length);
 
 const add = async(data) => {
