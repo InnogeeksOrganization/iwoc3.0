@@ -148,22 +148,22 @@ router.get("/unauthenticated", async (req, res, next) => {
 
 // // ************************ EVENT ROUTES *******************************************
 
-router.get("/eventRegistration", (req, res) => {
-  res.sendFile(path.join(__dirname, "../pages/event_registration.html"));
-});
+// router.get("/eventRegistration", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../pages/event_registration.html"));
+// });
 
-router.post("/eventRegistration",
-  async (req, res) => {
-    if(validateData(req.body)){
-      const resp = await UserHandler.addUserEvent(req.body);
-      res.send(JSON.stringify(resp));
-    }
-    else{
-      const resp = {message: "Invalid Data"};
-      res.send(JSON.stringify(resp));
-    } 
-  }
-);
+// router.post("/eventRegistration",
+//   async (req, res) => {
+//     if(validateData(req.body)){
+//       const resp = await UserHandler.addUserEvent(req.body);
+//       res.send(JSON.stringify(resp));
+//     }
+//     else{
+//       const resp = {message: "Invalid Data"};
+//       res.send(JSON.stringify(resp));
+//     } 
+//   }
+// );
 
 // // ************************ -------------------------- *****************************
 
@@ -199,25 +199,25 @@ router.get("/projects", async (req, res, next) => {
   res.render("project", {projects});
 });
 
-router.post("/register-project",
-  async (req, res, next) => {
-    await ProjectHandler.addProject(req.body);
-  }, (req, res) => {
-    res.send("Done");
-  }
-);
+// router.post("/register-project",
+//   async (req, res, next) => {
+//     await ProjectHandler.addProject(req.body);
+//   }, (req, res) => {
+//     res.send("Done");
+//   }
+// );
 
 // OR
 // OR
 
-router.get("/submit-project", (req, res) => {
-    res.redirect("https://forms.gle/zhrY8EvbFZCty1tw9");
-  }
-);
-router.get("/submit-project", (req, res) => {
-    res.redirect("https://forms.gle/zhrY8EvbFZCty1tw9");
-  }
-);
+// router.get("/submit-project", (req, res) => {
+//     res.redirect("https://forms.gle/zhrY8EvbFZCty1tw9");
+//   }
+// );
+// router.get("/submit-project", (req, res) => {
+//     res.redirect("https://forms.gle/zhrY8EvbFZCty1tw9");
+//   }
+// );
 
 // // ************************ ---------------------- *********************************
 
@@ -267,17 +267,17 @@ router.get("/admin-register",
   }
 );
 
-router.post("/admin-register", (req, res, next) => {
-  const newAdmin = new Admin({
-    adminname: req.body.name,
-    email: req.body.email,
-    sessionid: req.sessionID,
-    hash: req.body.password,
-    role: req.body.role,
-  });
-  newAdmin.save()
-  res.redirect("/admin");
-});
+// router.post("/admin-register", (req, res, next) => {
+//   const newAdmin = new Admin({
+//     adminname: req.body.name,
+//     email: req.body.email,
+//     sessionid: req.sessionID,
+//     hash: req.body.password,
+//     role: req.body.role,
+//   });
+//   newAdmin.save()
+//   res.redirect("/admin");
+// });
 
 // **********************************************-------------------------------------------************************
 
