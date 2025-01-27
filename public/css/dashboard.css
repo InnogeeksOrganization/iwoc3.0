@@ -6,13 +6,13 @@
 *::after,
 *::before {
   box-sizing: border-box;
-  padding: 0;
+  padding: 1;
   margin: 0;
   font-family: "Lato", sans-serif;
 }
 
 body {
-  background: #fff;
+  background: rgba(81, 117, 208, 0.14);
   color: #a1a2af;
   transition: 0.5s ease;
 }
@@ -20,14 +20,32 @@ body {
 .dashboard {
   max-width: 1250px;
   min-height: 800px;
-  background: #f2f2f2;
+  background: linear-gradient(135deg, #0d47a1, #3f51b5);
   margin: 50px auto;
   display: flex;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   overflow-x: hidden;
+  animation: slideIn 1s ease-out;
 }
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.dashboard:hover {
+  transform: scale(1.01);
+  transition: transform 0.3s ease;
+}
+
 
 .flex {
   display: flex;
@@ -237,7 +255,7 @@ body {
   width: 100%;
   height: 210px;
   border-radius: 18px;
-  background: #55c960 url(https://raw.githubusercontent.com/programmercloud/nft-dashboard/main/img/bannerBG.svg);
+  background: #3f51b5 url(https://raw.githubusercontent.com/programmercloud/nft-dashboard/main/img/bannerBG.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -502,7 +520,7 @@ body {
 }
 
 .darkMode .banner {
-  background: #38c947 url(https://raw.githubusercontent.com/programmercloud/nft-dashboard/main/img/bannerBG.svg);
+  background: #0d47a1 url(https://raw.githubusercontent.com/programmercloud/nft-dashboard/main/img/bannerBG.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
