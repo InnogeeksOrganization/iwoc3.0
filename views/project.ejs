@@ -132,10 +132,9 @@
             </div>
 
             <div class="tags">
-              <% for( const topic of project._doc.topic.slice(0, 4) ) { %>
+              <% for( const topic of project.topics.slice(0, 4) ) { %>
                 <span class="pill"><%= topic %></span>
               <% } %>
-              <!-- <%= project._doc.topic %> -->
             </div>
           </header>
 

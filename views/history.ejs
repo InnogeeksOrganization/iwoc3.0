@@ -215,10 +215,10 @@
                                         <% let i = 1 %>
                                         <% for(let s of user.scoresRecord){ %>
                                             <tr onclick="window.open('<%= s.Issue.Issue_url %>')" style="cursor: pointer;">
-                                                <td data-title="Sr.No."><%= i++ %></td>
-                                                <td data-title="Title"><%= s.Issue.Issue_title %></td>
-                                                <td data-title="Project"><%= s.projectName %></td>
-                                                <td data-title="Score"><%= s.score %></td>
+                                                <td style="border-top-left-radius: 0px; border-top-right-radius: 0px;" data-title="Sr.No."><%= i++ %></td>
+                                                <td style="border-top-left-radius: 0px; border-top-right-radius: 0px;" data-title="Title"><%= s.Issue.Issue_title %></td>
+                                                <td style="border-top-left-radius: 0px; border-top-right-radius: 0px;" data-title="Project"><%= s.projectName %></td>
+                                                <td style="border-top-left-radius: 0px; border-top-right-radius: 0px;" data-title="Score"><%= s.score %></td>
                                             </tr>
                                         <% } %>
                                     </tbody>

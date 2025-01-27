@@ -171,6 +171,7 @@ color: linear-gradient(#4bb852 0%,
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  overflow-wrap: break-word;
 }
 
 .card-header .title:hover {
@@ -277,4 +278,16 @@ color: linear-gradient(#4bb852 0%,
 .icon svg {
   display: inline;
   margin: 0 .25rem;
+}
+
+@media screen and (max-width: 380px) {
+  .card {
+    width: 100%;
+    min-width: 100%;
+
+    &::before {
+      width: calc(100% + 10px);
+      height: calc(100% + 11px);
+    }
+  }
 }

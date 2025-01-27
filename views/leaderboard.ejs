@@ -214,9 +214,9 @@
                                         <% let i = 1 %>
                                         <% for(let u of users){ %>
                                             <tr onclick="window.open('?user=<%= u.username %>')" style="cursor: pointer;">
-                                                <td data-title="Rank"><%= i++ %></td>
-                                                <td data-title="Name"><%= u.name %></td>
-                                                <td data-title="Score"><%= u.score %></td>
+                                                <td style="border-top-left-radius: 0px; border-top-right-radius: 0px;" data-title="Rank"><%= i++ %></td>
+                                                <td style="border-top-left-radius: 0px; border-top-right-radius: 0px;" data-title="Name"><%= u.name %></td>
+                                                <td style="border-top-left-radius: 0px; border-top-right-radius: 0px;" data-title="Score"><%= u.score %></td>
                                             </tr>
                                         <% } %>
                                     </tbody>

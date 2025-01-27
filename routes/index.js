@@ -171,7 +171,31 @@ router.get("/unauthenticated", async (req, res, next) => {
 // // ************************ PROJECT RELATED ROUTES *********************************
 
 router.get("/projects", async (req, res, next) => {
-  const projects = await Project.find();
+  // const projects = await Project.find();
+
+  const blacklistedTopics = ['hacktoberfest', 'hacktoberfest-accepted', 'girlscriptsummerofcode', 'swoc', 'gssoc', 'jwoc', 'kwoc', 'codepeak', 'dwoc'];
+
+  const projects = await Project.aggregate([
+    {
+      $addFields: {
+        topics: {
+          $filter: {
+            input: '$topic',
+            as: 'topic',
+            cond: {
+              $not: {
+                $regexMatch: {
+                  input: '$$topic',
+                  regex: new RegExp(blacklistedTopics.join('|'), 'i'), // Match any word in the blacklist, case-insensitive
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  ]);
+
   res.render("project", {projects});
 });
 
