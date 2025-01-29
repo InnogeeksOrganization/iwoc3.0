@@ -19,4 +19,4 @@ jobs:
                   cd iwoc3.0
                   git pull
                   npm ci
-                  pm2 restart index
+                  pm2 restart iwocBackend
