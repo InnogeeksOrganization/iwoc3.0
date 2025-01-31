@@ -17,6 +17,6 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
                   cd iwoc3.0
-                  git pull
+                  git pull origin iwoc3-dev
                   npm ci
                   pm2 restart iwocBackend
