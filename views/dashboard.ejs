@@ -156,7 +156,7 @@
                     <div class="user flex flex-sb">
                         <img style="border-radius: 20px" src="<%= user.avatarUrl %>" alt="" />
                         <p>
-                            <%= user.name.split(' ')[0] %></p>
+                            <%= user && user.name ? user.name.split(' ')[0] : 'Guest' %></p>
                     <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
                 </div>
             </div>

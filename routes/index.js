@@ -194,8 +194,8 @@ router.get("/projects", async (req, res, next) => {
         },
       },
     },
+    { $sort: { createdAt: -1 } },
   ]);
-
   res.render("project", {projects});
 });
 
